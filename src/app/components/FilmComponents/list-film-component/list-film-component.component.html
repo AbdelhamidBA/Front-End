@@ -1,0 +1,26 @@
+<p-panel header="Movies List">
+    <div class="container ui-g " style="margin: 0 auto;">
+
+        <div *ngFor="let film of listoffilms | paginate: {itemsPerPage:12,currentPage: p}" class="card ui-g-3 ui-md-12" style="width: 14rem;margin: 10px 0; margin-right: 2px;">
+            <img class="card-img-top" src="{{film.film_cover}}" alt="Card image cap" style="height: 350px;">
+            <div class="card-body">
+                <h5 class="card-title" style="font-size: 12pt;margin:5px auto;">{{film.film_name}}</h5>
+                <p class="card-text" style="height: 150px;">{{film.film_description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"></li>
+                <li class="list-group-item">{{film.film_gender}}</li>
+                <li class="list-group-item">{{film.film_show_date}}</li>
+                <li class="list-group-item">{{film.film_duration}}</li>
+                <li class="list-group-item">5*</li>
+            </ul>
+            <div class="card-body">
+                <a class="card-link">Buy Tickets</a>
+                <a routerLink='/{{film._id}}' class="card-link">View More</a>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g" style="margin: 0 auto;">
+        <pagination-controls (pageChange)="p = $event" style="margin: 25px auto;"></pagination-controls>
+    </div>
+</p-panel>

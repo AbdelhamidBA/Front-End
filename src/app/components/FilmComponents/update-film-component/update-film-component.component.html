@@ -1,0 +1,64 @@
+<<div class="ui-g">
+    <p-panel header='Update : {{formname}}'>
+        <form [formGroup]="updateForm" class="formStyle" (ngSubmit)="updateNewFilm()">
+            <mat-form-field class="input-width">
+                <mat-label>Film name</mat-label>
+                <input matInput formControlName='film_name'>
+                <mat-error>
+                    Enter a film name
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input-width">
+                <mat-label>Film Description</mat-label>
+                <textarea matInput formControlName='film_description'></textarea>
+                <mat-error>
+                    Enter the film description
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input-width">
+                <mat-label>Film Duration</mat-label>
+                <input type="time" matInput formControlName='film_duration'>
+                <mat-error>
+                    Enter the film duration
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="input-width">
+                <mat-label>Favorite food</mat-label>
+                <mat-select formControlName='film_gender'>
+                    <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                        {{gender.viewValue}}
+                    </mat-option>
+                </mat-select>
+                <mat-error>
+                    Choose the film gender
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="input-width">
+                <mat-label>Film Showdate</mat-label>
+                <input type="datetime-local" matInput formControlName='film_show_date'>
+
+                <mat-error>
+                    Choose the film showdate
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="input-width">
+                <mat-label>Film Cover</mat-label>
+                <input matInput formControlName='film_cover'>
+                <mat-error>
+                    Choose the film cover
+                </mat-error>
+            </mat-form-field>
+
+
+
+            <button mat-flat-button [disabled]='updateForm.invalid' color="primary" style="margin-right: 5px;">Update</button>
+            <button mat-flat-button (click)='onReset()' color="primary" style="margin-right: 5px;margin-top: 10px;">Reset</button>
+        </form>
+    </p-panel>
+    </div>

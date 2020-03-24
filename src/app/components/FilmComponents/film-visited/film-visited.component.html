@@ -1,0 +1,9 @@
+<div class="ui-g-12" style="width: 100%;min-width: 100%;">
+    <p-panel header="Films you checked">
+        <div class="ui-g" class="cardHolder">
+            <div *ngFor="let film of FilmsVisited" class="card bg-dark text-white cardStyle" (click)='seeFilm(film._id)'>
+                <img style="height:250px;" class="card-img" src="{{film.film_cover}}" alt="Card image">
+            </div>
+        </div>
+    </p-panel>
+</div>

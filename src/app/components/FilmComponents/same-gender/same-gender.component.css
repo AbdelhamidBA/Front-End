@@ -1,0 +1,40 @@
+.cardStyle {
+    cursor: pointer;
+    width: 10rem;
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+    border: none;
+    border: 2px solid rgba(0, 0, 0, .25);
+    transition: border 0.25s ease-in-out;
+    border-radius: none;
+}
+
+.cardStyle:hover {
+    border: 2px solid rgba(255, 0, 0, 0.719);
+}
+
+.cardHolder {
+    width: 100%;
+    display: inline-block;
+    overflow-x: auto;
+}
+
+.cardHolder::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.cardHolder::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+.cardHolder::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #D62929;
+}

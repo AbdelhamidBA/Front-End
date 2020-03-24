@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Titillium Web";
+}
+
+.film_card {
+    position: relative;
+    height: 300px;
+    width: 200px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+}
+
+.film_card .film_cover img {
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.film_detail {
+    float: right;
+    height: 100%;
+    width: 70%;
+    background-color: white;
+    margin: 0;
+    color: black;
+    font-family: "Titillium Web";
+    padding: 10px
+}
+
+.film_detail #film_name {
+    font-size: 18pt;
+    margin: 0
+}
+
+.film_actions button {
+    cursor: pointer;
+    padding: 10px;
+    width: 25%;
+    float: right;
+    margin-top: 10px;
+    margin-left: 10px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, .5);
+    background-color: orange;
+    border-style: none;
+    color: white;
+}

@@ -1,0 +1,24 @@
+<div class="ui-g">
+    <div *ngFor='let info of FilmInfo' class="infoBox">
+        <img id='infoCover' src="{{info.film_cover}} " alt="Card image cap " />
+        <div class="infoSection ">
+            <div class="card info">
+                <div class="card-body ">
+                    <h1 class="card-title ">{{info.film_name}}</h1>
+                    <p class="card-text ">{{info.film_description}}</p>
+                </div>
+                <ul class="list-group list-group-flush ">
+                    <li class="list-group-item "></li>
+                    <li class="list-group-item ">{{info.film_gender}}</li>
+                    <li class="list-group-item ">{{info.film_duration}}</li>
+                    <li class="list-group-item ">{{info.film_show_date}}</li>
+                </ul>
+                <div class="card-body ">
+                    <a href="# " class="card-link ">Card link</a>
+                    <a href="# " class="card-link ">Another link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-same-gender></app-same-gender>

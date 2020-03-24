@@ -1,0 +1,10 @@
+.formStyle {
+    min-width: 250px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.input-width {
+    width: 100%;
+    margin: 2px;
+}
