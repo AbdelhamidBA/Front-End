@@ -1,0 +1,59 @@
+<form [formGroup]="form" class="normal-form" (ngSubmit)="DeleteUser()">
+    <div class="controles-container">
+        <mat-form-field>
+            <mat-label>Select User</mat-label>
+            <mat-select #user (selectionChange)="UpdateFormContent(user.value)">
+                <mat-option *ngFor="let user of user_list" [value]="user['_id']">
+                    {{user['user_fullname']}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <input type="hidden" formControlName="$key">
+
+        <mat-form-field>
+            <input formControlName="fullname" matInput placeholder="Full Name">
+            <mat-error>This field is mandatory</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input formControlName="birthDate" matInput [matDatepicker]="picker" placeholder="Birthdate">
+            <mat-error>This field is mandatory</mat-error>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input formControlName="phone" matInput placeholder="Phone">
+            <mat-error *ngIf="form.controls['phone'].errors?.required">This field is mandatory</mat-error>
+            <mat-error *ngIf="form.controls['phone'].errors?.required">it should be 8 characters</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input formControlName="address" matInput placeholder="Address">
+            <mat-error>This field is mandatory</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input formControlName="email" matInput placeholder="Email">
+            <mat-error>Invalid Email address</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input formControlName="password" type="password" matInput placeholder="password">
+            <mat-error>This field is mandatory</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input formControlName="role" matInput placeholder="Role">
+            <mat-error>This field is mandatory</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="button-row">
+        <button mat-raised-button color="warn" type="reset">Clear</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Delete</button>
+
+    </div>
+
+
+</form>

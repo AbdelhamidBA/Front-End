@@ -1,3 +1,4 @@
+import { DefaultModule } from './layouts/default/default.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -21,6 +22,35 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { ToastrModule } from 'ngx-toastr';
 import { FilmVisitedComponent } from './components/FilmComponents/film-visited/film-visited.component';
 import { SameGenderComponent } from './components/FilmComponents/same-gender/same-gender.component';
+import { FooterComponent } from './components/admin-components/footer/footer.component';
+import { HeaderComponent } from './components/admin-components/header/header.component';
+import { AdminComponentsComponent } from './components/admin-components/admin-components.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatListModule} from '@angular/material/list';
+import {HighchartsChartModule} from 'highcharts-angular';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatNativeDateModule} from '@angular/material/core';
+import { AdduserComponent } from './components/admin-components/modules/adduser/adduser.component';
+import { DashboardComponent } from './components/admin-components/modules/dashboard/dashboard.component';
+import { UpdateuserComponent } from './components/admin-components/modules/updateuser/updateuser.component';
+import { DeleteuserComponent } from './components/admin-components/modules/deleteuser/deleteuser.component';
+import { SidebarComponent } from './components/admin-components/sidebar/sidebar.component';
+import { AreaComponent } from './components/admin-components/widgets/area/area.component';
+import { CardComponent } from './components/admin-components/widgets/card/card.component';
+import { PieComponent } from './components/admin-components/widgets/pie/pie.component';
+import { from } from 'rxjs';
+
+
 
 @NgModule({
   declarations: [
@@ -32,7 +62,18 @@ import { SameGenderComponent } from './components/FilmComponents/same-gender/sam
     UpdateFilmComponentComponent,
     DeleteFilmComponentComponent,
     FilmVisitedComponent,
-    SameGenderComponent
+    SameGenderComponent,
+    FooterComponent,
+    HeaderComponent,
+    AdminComponentsComponent,
+    AdduserComponent,
+    DashboardComponent,
+    UpdateuserComponent,
+    DeleteuserComponent,
+    SidebarComponent,
+    AreaComponent,
+    CardComponent,
+    PieComponent,
 
   ],
   imports: [
@@ -47,8 +88,23 @@ import { SameGenderComponent } from './components/FilmComponents/same-gender/sam
     MatButtonModule,
     MaterialFileInputModule,
     NgxPaginationModule,
-    ToastrModule.forRoot()
-
+    ToastrModule.forRoot(),
+    DefaultModule,
+    MatDividerModule,
+    MatToolbarModule,
+    MatIconModule,
+    FlexLayoutModule,
+    MatMenuModule,
+    MatListModule,
+    HighchartsChartModule,
+    MatSidenavModule,
+    MatCardModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatCheckboxModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
