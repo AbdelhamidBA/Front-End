@@ -46,7 +46,7 @@ mySub:any;
     }
   }
   seeFilm(id) {
-      this.router.navigate([`/${id}`]);
+      this.router.navigate([`/film/show/${id}`]);
 
   }
 

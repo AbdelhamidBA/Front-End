@@ -41,7 +41,7 @@ export class SameGenderComponent implements OnInit {
     });
   }
   seeFilm(id) {
-    this.router.navigate([`/${id}`]);
+    this.router.navigate([`/film/show/${id}`]);
   }
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
