@@ -1,0 +1,25 @@
+<div class="ui-g-6">
+    <p-panel header='Login'>
+        <form [formGroup]="loginForm" class="normal-form" (ngSubmit)="login()">
+            <div class="controles-container">
+                <mat-form-field>
+                    <input formControlName="email" matInput placeholder="Email">
+                    <mat-error>Invalid Email address</mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <input formControlName="password" type="password" matInput placeholder="Password">
+                    <mat-error>This field is mandatory</mat-error>
+                </mat-form-field>
+                <br>
+
+                <mat-checkbox formControlName="keepLogged" [(ngModel)]="keepLogged" class="example-margin">Keep me logged in</mat-checkbox>
+
+            </div>
+            <div class="button-row">
+                <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Sign in</button>
+            </div>
+
+        </form>
+    </p-panel>
+</div>

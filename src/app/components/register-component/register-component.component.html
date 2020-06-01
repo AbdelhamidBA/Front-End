@@ -1,0 +1,47 @@
+<div class="ui-g-6">
+    <p-panel header='Register'>
+        <form [formGroup]="registerForm" class="normal-form" (ngSubmit)="registerUser()">
+            <div class="controles-container">
+                <mat-form-field>
+                    <input formControlName="fullname" matInput placeholder="You Name">
+                    <mat-error>This field is mandatory</mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <input formControlName="birthDate" matInput [matDatepicker]="picker" placeholder="Birthdate">
+                    <mat-error>This field is mandatory</mat-error>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <input formControlName="phone" matInput placeholder="Phone">
+                    <mat-error *ngIf="registerForm.controls['phone'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="registerForm.controls['phone'].errors?.required">it should be 8 characters</mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <input formControlName="address" matInput placeholder="Address">
+                    <mat-error>This field is mandatory</mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <input formControlName="email" matInput placeholder="Email">
+                    <mat-error>Invalid Email address</mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <input formControlName="password" type="password" matInput placeholder="Password">
+                    <mat-error>This field is mandatory</mat-error>
+                </mat-form-field>
+                <br>
+            </div>
+            <div class="button-row">
+                <button mat-raised-button color="warn" type="reset" (click)="OnClear()">Clear</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">Register</button>
+
+            </div>
+
+        </form>
+    </p-panel>
+</div>

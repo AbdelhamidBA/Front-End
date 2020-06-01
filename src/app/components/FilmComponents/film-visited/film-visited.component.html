@@ -1,9 +1,39 @@
-<div class="ui-g-12" style="width: 100%;min-width: 100%;">
-    <p-panel header="Films you checked">
-        <div class="ui-g" class="cardHolder">
-            <div *ngFor="let film of FilmsVisited" class="card bg-dark text-white cardStyle" (click)='seeFilm(film._id)'>
-                <img style="height:250px;" class="card-img" src="{{film.film_cover}}" alt="Card image">
+<!-- expected premiere -->
+<section class="section section--bg" data-bg="../../../../assets/img/section/section.jpg">
+    <div class="container">
+        <div class="row">
+            <!-- section title -->
+            <div class="col-12">
+                <h2 class="section__title">Films you checked</h2>
             </div>
+            <!-- end section title -->
+
+            <!-- card -->
+            <div class="col-6 col-sm-4 col-lg-3 col-xl-2" *ngFor="let film of FilmsVisited">
+                <div class="card">
+                    <div class="card__cover">
+                        <img src="{{film.film_cover}}" width="150" height="222" alt="">
+                        <a routerLink="/movie/show/{{film._id}}" class="card__play">
+                            <i class="icon ion-ios-play"></i>
+                        </a>
+                    </div>
+                    <div class="card__content">
+                        <h3 class="card__title"><a routerLink="/movie/show/{{film._id}}">{{film.film_name}}</a></h3>
+                        <span class="card__category">
+                        <a>{{film.film_gender}}</a>
+                      </span>
+                        <span class="card__rate"><i class="icon ion-ios-star"></i>8.4</span>
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+
+            <!-- section btn -->
+            <div class="col-12">
+                <a routerLink="/movies" class="section__btn">Show more</a>
+            </div>
+            <!-- end section btn -->
         </div>
-    </p-panel>
-</div>
+    </div>
+</section>
+<!-- end expected premiere -->

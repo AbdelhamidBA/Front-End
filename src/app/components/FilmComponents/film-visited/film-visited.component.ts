@@ -32,12 +32,20 @@ mySub:any;
   }
 
   VisitedFilms() {
+    let breaker = 0;
     if (localStorage.getItem('visitedFilms') !== '' || localStorage.getItem('visitedFilms') != null) {
         this.visited= JSON.parse(localStorage.getItem('visitedFilms'));
         for(let film of this.visited) {
-          this.filmService.getFilmInfos(film.id).subscribe(result=>{
-              this.FilmsVisited.push(result);
+          if(breaker != 6)
+          {
+            this.filmService.getFilmInfos(film.id).subscribe(result=>{
+                this.FilmsVisited.push(result);
           });
+          }else
+          {
+            break;
+          }
+          breaker++;
         }
         console.log('Visited Films:');
         console.log(this.FilmsVisited);

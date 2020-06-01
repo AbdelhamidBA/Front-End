@@ -1,3 +1,5 @@
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { AuthGuard } from './guards/auth.guard';
 import { DefaultModule } from './layouts/default/default.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -6,8 +8,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ListFilmComponentComponent } from './components/FilmComponents/list-film-component/list-film-component.component';
 import { PanelModule } from 'primeng/panel';
 import { AddFilmComponentComponent } from './components/FilmComponents/add-film-component/add-film-component.component';
@@ -49,6 +51,13 @@ import { AreaComponent } from './components/admin-components/widgets/area/area.c
 import { CardComponent } from './components/admin-components/widgets/card/card.component';
 import { PieComponent } from './components/admin-components/widgets/pie/pie.component';
 import { from } from 'rxjs';
+import { LoginComponentComponent } from './components/login-component/login-component.component';
+import { RegisterComponentComponent } from './components/register-component/register-component.component';
+import { HomeComponent } from './components/home/home.component';
+import { MainHeaderComponent } from './shared/main-header/main-header.component';
+import { MainFooterComponent } from './shared/main-footer/main-footer.component';
+import { MainPreviewSliderComponent } from './shared/main-preview-slider/main-preview-slider.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 
@@ -74,6 +83,13 @@ import { from } from 'rxjs';
     AreaComponent,
     CardComponent,
     PieComponent,
+    LoginComponentComponent,
+    RegisterComponentComponent,
+    HomeComponent,
+    MainHeaderComponent,
+    MainFooterComponent,
+    MainPreviewSliderComponent,
+    NotFoundComponent,
 
   ],
   imports: [
@@ -81,6 +97,7 @@ import { from } from 'rxjs';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     PanelModule,
     MatInputModule,
@@ -106,7 +123,11 @@ import { from } from 'rxjs';
     MatCheckboxModule,
     MatNativeDateModule
   ],
-  providers: [],
+  providers: [AuthGuard,{
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

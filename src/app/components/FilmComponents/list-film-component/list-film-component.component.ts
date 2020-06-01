@@ -1,5 +1,7 @@
+import { NgxPaginationModule } from 'ngx-pagination';
 import { FilmServiceService } from './../../../services/film-service.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-list-film-component',

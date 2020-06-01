@@ -32,6 +32,7 @@ export class SameGenderComponent implements OnInit {
 
   sameGenderFilms() {
     let id= this.route.snapshot.paramMap.get('id');
+    //let id= "5ec430da2b97022e8cb8665c";
     console.log("this id:"+id);
     this.filmService.getFilmsByGender(id).subscribe(results=>{
       for(let film of results)
