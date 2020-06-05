@@ -58,6 +58,7 @@ import { MainHeaderComponent } from './shared/main-header/main-header.component'
 import { MainFooterComponent } from './shared/main-footer/main-footer.component';
 import { MainPreviewSliderComponent } from './shared/main-preview-slider/main-preview-slider.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 
@@ -90,6 +91,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     MainFooterComponent,
     MainPreviewSliderComponent,
     NotFoundComponent,
+    LogoutComponent,
 
   ],
   imports: [

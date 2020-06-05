@@ -1,3 +1,4 @@
+import { LogoutComponent } from './components/logout/logout.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './guards/auth.guard';
@@ -45,6 +46,7 @@ const routes: Routes = [
   {path: 'movie/visited', component: FilmVisitedComponent},
   {path: 'login',component:LoginComponentComponent},
   {path: 'register',component:RegisterComponentComponent},
+  {path: 'logout', component: LogoutComponent},
   {
     path: 'admin',
     component: AdminComponentsComponent,

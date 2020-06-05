@@ -1,25 +1,39 @@
-<div class="ui-g-6">
-    <p-panel header='Login'>
-        <form [formGroup]="loginForm" class="normal-form" (ngSubmit)="login()">
-            <div class="controles-container">
-                <mat-form-field>
-                    <input formControlName="email" matInput placeholder="Email">
-                    <mat-error>Invalid Email address</mat-error>
-                </mat-form-field>
-                <br>
-                <mat-form-field>
-                    <input formControlName="password" type="password" matInput placeholder="Password">
-                    <mat-error>This field is mandatory</mat-error>
-                </mat-form-field>
-                <br>
+<div class="sign section--bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="sign__content">
+                    <!-- authorization form -->
+                    <form (ngSubmit)="login()" class="sign__form" [formGroup]="loginForm">
 
-                <mat-checkbox formControlName="keepLogged" [(ngModel)]="keepLogged" class="example-margin">Keep me logged in</mat-checkbox>
 
+                        <a routerLink="/" class="sign__logo">
+                            <img src="assets/img/logo.svg" alt="">
+                        </a>
+                        <span *ngIf="errorMessage !== '' " class="errorMessage">{{errorMessage}}</span>
+                        <br>
+                        <div class="sign__group">
+                            <input type="text" class="sign__input" formControlName="email" placeholder="Email">
+                        </div>
+                        <div class="sign__group">
+                            <input type="password" class="sign__input" formControlName="password" placeholder="Password">
+                        </div>
+
+                        <div class="sign__group sign__group--checkbox">
+                            <input id="remember" formControlName="keepLogged" [(ngModel)]="keepLogged" name="remember" type="checkbox" checked="checked">
+                            <label for="remember">Remember Me</label>
+                        </div>
+
+                        <button class="sign__btn" type="submit">Sign in</button>
+
+                        <span class="sign__text">Don't have an account? <a routerLink="/register">Sign up!</a></span>
+
+                        <span class="sign__text"><a>Forgot password?</a></span>
+                    </form>
+                    <!-- end authorization form -->
+                </div>
             </div>
-            <div class="button-row">
-                <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Sign in</button>
-            </div>
 
-        </form>
-    </p-panel>
+        </div>
+    </div>
 </div>

@@ -12,7 +12,7 @@ export class LoginComponentComponent implements OnInit {
 
   keepLogged = false;
   loginForm:FormGroup;
-
+  errorMessage="";
 
   constructor(private authService:AuthService, private router:Router) {
     if(this.authService.currentUserValue)
@@ -38,29 +38,29 @@ export class LoginComponentComponent implements OnInit {
       email : this.email,
       password: this.password
     };
-
     this.authService.Login(Data).subscribe(result =>{
-      if(this.keepLogged == true)
-      {
+      if(this.authService.currentUserValue !== null){
+        this.errorMessage = '';
+        if(this.keepLogged === true){
 
-      }
-      else
-      {
+        } else {
 
-      }
+        }
 
-      if(this.authService.currentUserValue.role ==="ROLE_USER")
-      {
-        this.router.navigate(['/register']);
-      }
-      else
-      {
-        this.router.navigate(['/']);
-      }
+        if(this.authService.currentUserValue.role === 'ROLE_USER'){
+          this.router.navigate(['/register']);
+        } else {
+          this.router.navigate(['/']);
+        }
+    } else {
+      this.errorMessage = 'Check your Coordinates';
+    }
+
     },
-    err =>{
-      console.log("err:"+err);
-    })
+    err => {
+      console.log('err:' + err);
+      this.errorMessage = 'Check your email & password';
+    });
 
 
   }

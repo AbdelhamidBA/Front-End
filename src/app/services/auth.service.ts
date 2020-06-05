@@ -30,8 +30,11 @@ export class AuthService {
   {
     return this.http.post(URL + 'login', data, httpOptions).pipe(map(couser=>{
       let user = JSON.parse(JSON.stringify(couser));
-      localStorage.setItem('currentUser', JSON.stringify(user.user));
-      this.currentUserSubject.next(user.user);
+      if(user.user != null)
+      {
+        localStorage.setItem('currentUser', JSON.stringify(user.user));
+        this.currentUserSubject.next(user.user);
+      }
       return user;
     }));
   }

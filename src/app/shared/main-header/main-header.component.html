@@ -24,7 +24,12 @@
                                 <a class="header__nav-link" routerLink="/movies">Movies</a>
                             </li>
                             <!-- end dropdown -->
-
+                            <li *ngIf="isLoggedIn==true" class="header__nav-item">
+                                <a class="header__nav-link" routerLink="/Profile">Profile</a>
+                            </li>
+                            <li *ngIf="isLoggedIn==true" class="header__nav-item">
+                                <a class="header__nav-link" routerLink="/logout">Logout</a>
+                            </li>
                         </ul>
                         <!-- end header nav -->
 
@@ -34,7 +39,7 @@
                 <i class="icon ion-ios-search"></i>
               </button>
 
-                            <a href="signin.html" class="header__sign-in">
+                            <a *ngIf="isLoggedIn == false" routerLink="/login" class="header__sign-in">
                                 <i class="icon ion-ios-log-in"></i>
                                 <span>sign in</span>
                             </a>

@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -21,7 +21,7 @@ registerForm = new FormGroup({
     password: new FormControl('', [Validators.required])
 });
 
-  constructor(private authService: AuthService,private router:Router) {
+  constructor(private authService: AuthService,private router:Router,private toastr:ToastrService) {
     if(this.authService.currentUserValue)
     {
       this.router.navigate(['/']);
@@ -50,6 +50,21 @@ registerForm = new FormGroup({
 
     this.authService.RegisterUser(Data).subscribe(result=>{
       console.log(result);
+      if (result.token !== null) {
+        this.router.navigate(['/login']).then(()=>{
+          this.toastr.success( result.message,'Register Operation',{
+            timeOut:3000,
+            progressBar:true
+          });
+        });
+      }
+      else
+      {
+        this.toastr.error( "Failed To Proceed your Register",'Add Operation',{
+          timeOut:3000,
+          progressBar:true
+        });
+      }
     });
   }
 

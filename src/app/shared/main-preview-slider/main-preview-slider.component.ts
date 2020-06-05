@@ -1,7 +1,8 @@
+import { Router, NavigationEnd } from '@angular/router';
 import { FilmServiceService } from './../../services/film-service.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-main-preview-slider',
@@ -11,28 +12,26 @@ import { Component, OnInit } from '@angular/core';
 export class MainPreviewSliderComponent implements OnInit {
 
   listoffilms: any = [];
-  constructor(private http:HttpClient,private service:FilmServiceService) { }
+  routerSubscription: any;
+  constructor(private http:HttpClient,private service:FilmServiceService,private router:Router) { }
 
   ngOnInit(): void {
     this.RecentFilms();
   }
 
-
   RecentFilms(){
+
     let breaker = 0;
-    console.log("Hello Main Preview");
     this.service.getFilms().subscribe(films =>{
 
       for(let film of films)
       {
         if(breaker == 5)
         {
-          console.log("breeeeekkk");
           break;
         }
         else
         {
-          console.log(breaker);
           this.listoffilms.push(film);
           breaker += 1;
         }
