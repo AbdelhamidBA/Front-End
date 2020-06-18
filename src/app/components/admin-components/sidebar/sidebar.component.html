@@ -1,37 +1,45 @@
-<mat-nav-list>
+<mat-nav-list class="list">
     <div class="profile-card">
-        <div class="header">
-            <h2>Rihab ben cheikh</h2>
-            <h4>bencheikhrihab@gmail.com</h4>
+        <div class="header11">
+            <p>{{currentUser.fullname}}</p>
         </div>
-        <!--<img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Rihab Ben Cheikh">-->
     </div>
     <mat-divider></mat-divider>
-    <h2 matSubheader>pages</h2>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/">
+    <h2 matSubheader>Management</h2>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin">
         <mat-icon>trending_up</mat-icon>
         Dashboard
     </a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/adduser">
+
+
+    <mat-divider></mat-divider>
+    <h2 matSubheader *ngIf="currentUser.role == 'ROLE_ADMIN' || currentUser.role =='ROLE_USER_MANAGER'">User Management</h2>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/adduser" *ngIf="currentUser.role == 'ROLE_ADMIN' || currentUser.role =='ROLE_USER_MANAGER'">
         <mat-icon>perm_identity</mat-icon>
         Add User</a>
 
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/updateuser">
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/updateuser" *ngIf="currentUser.role == 'ROLE_ADMIN' || currentUser.role =='ROLE_USER_MANAGER'">
         <mat-icon>update</mat-icon>
         Update User
     </a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/deleteuser">
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/deleteuser" *ngIf="currentUser.role == 'ROLE_ADMIN' || currentUser.role =='ROLE_USER_MANAGER'">
         <mat-icon>delete_sweep</mat-icon>
         Delete User
     </a>
-    <mat-divider></mat-divider>
-    <h2 matSubheader>Tools</h2>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/Contacts">
-        <mat-icon>import_contacts</mat-icon>
-        Contacts
+
+
+    <mat-divider *ngIf="currentUser.role == 'ROLE_ADMIN'"></mat-divider>
+    <h2 matSubheader *ngIf="currentUser.role == 'ROLE_ADMIN' || currentUser.role =='ROLE_FILM_MANAGER'">Film Management</h2>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/addfilm" *ngIf="currentUser.role == 'ROLE_ADMIN' || currentUser.role =='ROLE_FILM_MANAGER'">
+        <mat-icon>perm_identity</mat-icon>
+        Add Film</a>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/updatefilm" *ngIf="currentUser.role == 'ROLE_ADMIN' || currentUser.role =='ROLE_FILM_MANAGER'">
+        <mat-icon>update</mat-icon>
+        Update Film
     </a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/Contacts">
-        <mat-icon>contact_phone</mat-icon>
-        Leads
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/deletefilm" *ngIf="currentUser.role == 'ROLE_ADMIN' || currentUser.role =='ROLE_FILM_MANAGER'">
+        <mat-icon>delete_sweep</mat-icon>
+        Delete Film
     </a>
 </mat-nav-list>

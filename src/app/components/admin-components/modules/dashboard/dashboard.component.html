@@ -1,10 +1,9 @@
-<div>
+<!-- <div>
     <app-widget-area [data]="bigChart"></app-widget-area>
 
 </div>
 
 <br>
-
 <mat-divider></mat-divider>
 
 <br>
@@ -63,8 +62,17 @@
         <mat-paginator [pageSizeOptions]="[15, 10, 20] showFirstLastButtons"></mat-paginator>
     </div>-->
 
+<!-- </div>
+<div fxFlex="40">
+    <app-widget-pie [data]="pieChart"></app-widget-pie>
+</div>
+</div> -->
+
+<div class="card" style="width: 18rem;">
+    <div class="card-head">
+        {{ userstat }}
     </div>
-    <div fxFlex="40">
-        <app-widget-pie [data]="pieChart"></app-widget-pie>
+    <div class="card-body">
+        <h5 class="card-title">Users</h5>
     </div>
 </div>

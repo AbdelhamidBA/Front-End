@@ -62,6 +62,8 @@ export class FilmServiceService {
 
   deleteFilm(idFilm): Observable<any>
   {
+    console.log("Hello from service");
+    console.log(idFilm);
     return this.http.delete(this.url + `delete/${idFilm}`);
   }
 

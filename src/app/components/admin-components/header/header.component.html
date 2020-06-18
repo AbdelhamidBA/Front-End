@@ -1,9 +1,9 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="customColor">
     <mat-toolbar-row>
         <button mat-icon-button (click)="toggleSideBar()">
      <mat-icon>menu</mat-icon>
    </button>
-        <span>APP LOGO</span>
+        <span>FLIXGO</span>
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
                 <li>
@@ -21,7 +21,7 @@
                 <mat-icon>person_outline</mat-icon>
             </button>
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
+                        <button mat-menu-item routerLink="/logout">
                   <mat-icon>exit_to_app</mat-icon>
                   Sign out
               </button>

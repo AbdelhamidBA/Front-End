@@ -12,8 +12,12 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
+
+$primary: mat-palette($mat-indigo);
 $Front-end-primary: mat-palette($mat-indigo);
 $Front-end-accent: mat-palette($mat-pink, A200, A100, A400);
+$rihab : #2B2B31;
+$rihab1 : #FFFFFF;
 
 // The warn palette is optional (defaults to red).
 $Front-end-warn: mat-palette($mat-red);

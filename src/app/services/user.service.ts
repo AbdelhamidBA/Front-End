@@ -24,6 +24,10 @@ export class UserService {
     return this.http.get(this.url);
   }
 
+  statistic(): Observable<any>{
+    return this.http.get(this.url + '/user/statis');
+  }
+
   DeleteUser(id_user: string): Observable<any>{
     return this.http.delete(this.url + `${id_user}/del`);
   }

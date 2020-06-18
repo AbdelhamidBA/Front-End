@@ -10,10 +10,18 @@ import { Component, OnInit } from '@angular/core';
 export class MainHeaderComponent implements OnInit {
 
   isLoggedIn:boolean=false;
+  isAdmin:boolean=false;
 
   constructor(private authService:AuthService,private router:Router) {
     if(this.authService.currentUserValue !== null) {
       this.isLoggedIn = true;
+      if(this.authService.currentUserValue.role == "ROLE_ADMIN" ||
+      this.authService.currentUserValue.role == "ROLE_USER_MANAGER" ||
+      this.authService.currentUserValue.role == "ROLE_FILM_MANAGER" )
+        {
+          this.isAdmin = true;
+        }
+
     } else {
       this.isLoggedIn = false;
     }

@@ -8,14 +8,13 @@ import { DeleteuserComponent } from './components/admin-components/modules/delet
 import { UpdateuserComponent } from './components/admin-components/modules/updateuser/updateuser.component';
 import { AdduserComponent } from './components/admin-components/modules/adduser/adduser.component';
 import { AdminComponentsComponent } from './components/admin-components/admin-components.component';
-import { DashboardComponent } from './module/dashboard/dashboard.component';
 import { FilmVisitedComponent } from './components/FilmComponents/film-visited/film-visited.component';
 import { DeleteFilmComponentComponent } from './components/FilmComponents/delete-film-component/delete-film-component.component';
 import { UpdateFilmComponentComponent } from './components/FilmComponents/update-film-component/update-film-component.component';
 import { FilmInfoComponentComponent } from './components/FilmComponents/film-info-component/film-info-component.component';
 import { AddFilmComponentComponent } from './components/FilmComponents/add-film-component/add-film-component.component';
 import { ListFilmComponentComponent } from './components/FilmComponents/list-film-component/list-film-component.component';
-
+import { DashboardComponent } from './components/admin-components/modules/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -26,12 +25,7 @@ const routes: Routes = [
   {path:'',component:HomeComponent},
   {path: 'movie/show/:id', component: FilmInfoComponentComponent},
   {path: 'movies', component: ListFilmComponentComponent},
-  {
-    path: 'movie/add',
-    component: AddFilmComponentComponent,
-    canActivate:[AuthGuard],
-    data: {roles:['ROLE_ADMIN']}
-  },
+
   {
     path: 'movie/update/:id',
     component: UpdateFilmComponentComponent,
@@ -50,21 +44,35 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponentsComponent,
+    canActivate:[AuthGuard],
+    data: {roles:['ROLE_ADMIN','ROLE_USER_MANAGER','ROLE_FILM_MANAGER']},
     children: [{
-      path: 'dashboard',
+      path: '',
       component: DashboardComponent
     },
     {
     path: 'adduser',
     component: AdduserComponent
     },
+    {
+        path: 'addfilm',
+        component: AddFilmComponentComponent,
+
+    },
   {
     path: 'updateuser',
     component: UpdateuserComponent
   },
   {
+    path: 'updatefilm',
+    component: UpdateFilmComponentComponent
+  },
+  {
     path: 'deleteuser',
     component: DeleteuserComponent
+  },
+  {path: 'deletefilm',
+  component: DeleteFilmComponentComponent
   }]
   },
   {path:'404',component:NotFoundComponent},

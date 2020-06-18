@@ -24,8 +24,11 @@
                                 <a class="header__nav-link" routerLink="/movies">Movies</a>
                             </li>
                             <!-- end dropdown -->
-                            <li *ngIf="isLoggedIn==true" class="header__nav-item">
+                            <li *ngIf="isLoggedIn==true && isAdmin == false" class="header__nav-item">
                                 <a class="header__nav-link" routerLink="/Profile">Profile</a>
+                            </li>
+                            <li *ngIf="isLoggedIn==true && isAdmin == true" class="header__nav-item">
+                                <a class="header__nav-link" routerLink="/admin">Dashboard</a>
                             </li>
                             <li *ngIf="isLoggedIn==true" class="header__nav-item">
                                 <a class="header__nav-link" routerLink="/logout">Logout</a>

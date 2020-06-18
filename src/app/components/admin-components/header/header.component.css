@@ -1,3 +1,8 @@
 ul li {
     list-style: none;
 }
+
+.customColor {
+    background-color: #2B2B31;
+    color: #e84393;
+}

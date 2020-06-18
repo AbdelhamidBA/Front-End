@@ -42,11 +42,14 @@ export class UpdateFilmComponentComponent implements OnInit {
     film_show_date: new FormControl('', [Validators.required]),
     film_cover: new FormControl(null, [Validators.required])
   });
+
+  film_id :string="";
+  film_list: any =[];
+
   constructor(private filmService: FilmServiceService, private route: ActivatedRoute,private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    let id = this.route.snapshot.paramMap.get('id');
-    this.idFilm = id;
+    this.Allfilm();
     this.getFilmInfo(this.idFilm);
 
   }
@@ -54,6 +57,17 @@ export class UpdateFilmComponentComponent implements OnInit {
   onReset(){
     this.updateForm.reset();
   }
+
+  Allfilm(){
+    this.filmService.getFilms().subscribe(films => {
+      for(let film of films)
+      {
+        this.film_list.push(film);
+      }
+      console.log(this.film_list);
+    });
+  }
+
 
   getFilmInfo(idFilm){
     this.filmService.getFilmInfos(idFilm).subscribe(filminfo=>{
@@ -73,7 +87,16 @@ export class UpdateFilmComponentComponent implements OnInit {
   updateNewFilm()
   {
 
-    this.filmService.updateFilm(this.idFilm,this.updateForm.value).subscribe(result=>{
+    const Data = {
+      film_name: this.film_name,
+      film_description: this.film_description,
+      film_duration: this.film_duration,
+      film_gender: this.film_gender,
+      film_show_date: this.film_show_date,
+      film_cover: this.film_cover,
+    };
+    console.log("IDFILM:"+this.idFilm);
+    this.filmService.updateFilm(this.idFilm, Data).subscribe(result=>{
       console.log('1: '+result);
       console.log('2'+JSON.stringify(result));
       this.op_result = result.message;
@@ -93,6 +116,32 @@ export class UpdateFilmComponentComponent implements OnInit {
       }
     });
   }
+
+
+  UpdateFormContent(value: string)
+  {
+    if(value !== undefined || value !== null)
+    {
+      this.film_id=value;
+      this.idFilm = value;
+      this.updateForm.enable();
+      for(let user of this.film_list)
+      {
+        if(user['_id']===value)
+        {
+          this.updateForm.setValue({
+            film_name: user['film_name'],
+            film_description: user['film_description'],
+            film_duration: user['film_duration'],
+            film_gender: user['film_gender'],
+            film_show_date: user['film_show_date'],
+            film_cover: user['film_cover'],
+          });
+        }
+      }
+    }
+}
+
 
   get film_name()
   {

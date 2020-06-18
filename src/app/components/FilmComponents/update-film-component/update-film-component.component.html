@@ -1,6 +1,14 @@
-<<div class="ui-g">
+<div class="ui-g">
     <p-panel header='Update : {{formname}}'>
         <form [formGroup]="updateForm" class="formStyle" (ngSubmit)="updateNewFilm()">
+            <mat-form-field>
+                <mat-label>Select Film</mat-label>
+                <mat-select #user (selectionChange)="UpdateFormContent(user.value)">
+                    <mat-option *ngFor="let user of film_list" [value]="user['_id']">
+                        {{user['film_name']}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
             <mat-form-field class="input-width">
                 <mat-label>Film name</mat-label>
                 <input matInput formControlName='film_name'>
@@ -61,4 +69,4 @@
             <button mat-flat-button (click)='onReset()' color="primary" style="margin-right: 5px;margin-top: 10px;">Reset</button>
         </form>
     </p-panel>
-    </div>
+</div>
