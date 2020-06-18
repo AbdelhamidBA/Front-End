@@ -323,5 +323,5 @@
 <!-- end content -->
 
 <app-same-gender></app-same-gender>
-<app-film-visited></app-film-visited>
+<app-recommended-film *ngIf="currentUser != null && currentUser.role =='ROLE_USER'"></app-recommended-film>
 <app-main-footer></app-main-footer>

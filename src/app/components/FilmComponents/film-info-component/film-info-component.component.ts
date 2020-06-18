@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FilmServiceService } from './../../../services/film-service.service';
 import { ActivatedRoute } from '@angular/router';
@@ -9,7 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 export class FilmInfoComponentComponent implements OnInit {
 
   public FilmInfo:any=[];
-  constructor(private filmService: FilmServiceService,private route: ActivatedRoute) { }
+  currentUser = null;
+  constructor(private filmService: FilmServiceService,private authService:AuthService,private route: ActivatedRoute) {
+    this.currentUser = this.authService.currentUserValue;
+   }
 
   ngOnInit(): void {
 
