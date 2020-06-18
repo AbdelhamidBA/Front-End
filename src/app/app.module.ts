@@ -59,6 +59,7 @@ import { MainFooterComponent } from './shared/main-footer/main-footer.component'
 import { MainPreviewSliderComponent } from './shared/main-preview-slider/main-preview-slider.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { RecommendedFilmComponent } from './components/FilmComponents/recommended-film/recommended-film.component';
 
 
 
@@ -92,6 +93,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     MainPreviewSliderComponent,
     NotFoundComponent,
     LogoutComponent,
+    RecommendedFilmComponent,
 
   ],
   imports: [

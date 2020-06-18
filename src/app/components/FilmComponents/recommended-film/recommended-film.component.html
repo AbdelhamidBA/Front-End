@@ -1,18 +1,14 @@
-<app-main-header></app-main-header>
-<app-main-preview-slider></app-main-preview-slider>
-
-<!-- expected premiere -->
-<section class="section section--bg">
+<section class="section section--bg" data-bg="../../../../assets/img/section/section.jpg">
     <div class="container">
         <div class="row">
             <!-- section title -->
             <div class="col-12">
-                <h2 class="section__title">Movie List</h2>
+                <h2 class="section__title">Recommended for you</h2>
             </div>
             <!-- end section title -->
 
             <!-- card -->
-            <div class="col-6 col-sm-4 col-lg-3 col-xl-2" *ngFor="let film of movieslist">
+            <div class="col-6 col-sm-4 col-lg-3 col-xl-2" *ngFor="let film of FilmsRecommended">
                 <div class="card">
                     <div class="card__cover">
                         <img src="{{film.film_cover}}" width="150" height="222" alt="">
@@ -23,7 +19,7 @@
                     <div class="card__content">
                         <h3 class="card__title"><a routerLink="/movie/show/{{film._id}}">{{film.film_name}}</a></h3>
                         <span class="card__category">
-                        <a >{{film.film_gender}}</a>
+                        <a>{{film.film_gender}}</a>
                       </span>
                         <span class="card__rate"><i class="icon ion-ios-star"></i>8.4</span>
                     </div>
@@ -39,12 +35,3 @@
         </div>
     </div>
 </section>
-<!-- end expected premiere -->
-
-
-<app-film-visited></app-film-visited>
-
-<app-recommended-film *ngIf="currentUser != null && currentUser.role =='ROLE_USER'"></app-recommended-film>
-
-
-<app-main-footer></app-main-footer>

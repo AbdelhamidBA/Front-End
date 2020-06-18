@@ -66,6 +66,10 @@ export class FilmServiceService {
     console.log(idFilm);
     return this.http.delete(this.url + `delete/${idFilm}`);
   }
-
+  getRecommendation(idFilm): Observable<any>
+  {
+    console.log("ID:"+idFilm);
+    return this.http.get(this.url + `recommendation/${idFilm}`);
+  }
 
 }

@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { FilmServiceService } from './../../services/film-service.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,8 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   movieslist = [];
+  currentUser = null;
   varClass = "slide-it";
-  constructor(private service:FilmServiceService) {  }
+  constructor(private service:FilmServiceService,private authService:AuthService) { this.currentUser=this.authService.currentUserValue  }
 
   ngOnInit(): void {
 
